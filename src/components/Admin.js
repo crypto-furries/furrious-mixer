@@ -48,7 +48,7 @@ const DenominationListItem = ({ mixer, onDelete, onCreate }) => (
 const inRange = (value) => value <= 1000 && value >= 0.01;
 
 export const Admin = ({ hub, toggleBackdrop }) => {
-    const [mixers, setMixers] = useState([]);
+    const [mixers, setMixers] = useState(null);
     const [inputValue, setInputValue] = useState(0.01);
     const { state, updateState } = useContext(AppContext);
     const { account, denominations } = state;
@@ -94,7 +94,7 @@ export const Admin = ({ hub, toggleBackdrop }) => {
         }
     };
 
-    return mixers.length ? (
+    return mixers !== null ? (
         <>
             <Typography variant="h5">Deployed mixers:</Typography>
             <List>
